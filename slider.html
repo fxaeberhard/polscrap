@@ -22,15 +22,17 @@
     });
     $( "#timeslot" ).change(function() {
       slider.slider( "value", this.selectedIndex + 1 );
-      $("#test").html($("#timeslot").val());
+      myFunction();
       //var zone=document.getElementById("test");
       //zone.textContent=this.selectedIndex + 1;
     });
   });
 
 	function myFunction() {
-	    var x = $("#timeslot").val();
-	    $("#test").html(x);
+	    var text_value = $("#timeslot").val();
+      var index_value = $("#timeslot")[0].selectedIndex + 1;
+	    $("#test").html(text_value+"  "+index_value);
+      $("#image").attr("src","./img/sample-"+index_value+".png");
 	}
   </script>
 </head>
@@ -48,8 +50,8 @@
   </select>
 </form>
 
-<img src="./img/sample-1.png"></img>
-<p id="test">Janvier 2008</p>
+<img id="image" src="./img/sample-1.png"></img>
+<p id="test">Janvier 2008 1</p>
  
  
 </body>
