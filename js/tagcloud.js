@@ -3,9 +3,12 @@
  */
 (function() {
 
-	var diameter = 960,
+	var file = "data/nzzdata.csv",
+		diameter = 960,
 		format = d3.format(",d"),
-		color = d3.scale.category20c();
+		color = d3.scale.category20c(),
+		timeInterval = 60 * 60 * 24 * 30;
+
 
 	var bubble = d3.layout.pack()
 		.sort(null)
@@ -19,52 +22,48 @@
 
 	var data;
 
-	d3.csv("data/data.csv", function(error, root) {
+	d3.csv(file, function(error, root) {
+		if (error)
+			alert("unable to load data");
 		data = root;
-		window.showBubble();
+		window.showBubble(new Date("2015-05-11T00:00:00.000Z"));
 	});
 
 	d3.select(self.frameElement).style("height", diameter + "px");
 
-
 	window.showBubble = function(date) {
-
-		var children = [{
-				className: "AgglomerativeCluster",
-				packageName: "cluster",
-				value: 3938
-			}, {
-				className: "AgglomerativeCluster2",
-				packageName: "cluster2",
-				value: 3938
-			}];
-
-		var terms = {};
+		var terms = {},
+			endDate = new Date(date.getTime() + timeInterval);
 
 		data.forEach(function(r) {
-			var term = r[' Term'],
-				count = r[' Count'];
+			var term = r.term,
+				d = new Date(r.timestamp);
+
+			if (d < date || d > endDate)
+				return;
 
 			if (!terms[term]) {
 				terms[term] = {
-					size: 0,
-					className: "AgglomerativeCluster2",
-					packageName: "cluster2",
-				};
-				terms[term] = {
-					className: "AgglomerativeCluster2",
-					packageName: "cluster2",
+					className: term,
+					packageName: term,
 					value: 0
 				};
 			}
 
-			terms[term].value += +count * 100;
+			terms[term].value += +r.count * 100;
 		});
+		
+		svg.selectAll("*").remove();
+		
+		if (_.size(terms) > 0) {
+			render(_.values(terms));
+		}
+	};
 
-
+	function render(data) {
 		var node = svg.selectAll(".node")
 			.data(bubble.nodes({
-				children: _.values(terms)
+				children: data
 			})
 				.filter(function(d) {
 					return !d.children;
@@ -94,6 +93,5 @@
 			.text(function(d) {
 				return d.className.substring(0, d.r / 3);
 			});
-	};
-
+	}
 }());
