@@ -23,6 +23,7 @@ $(function() {
 			slide: function(event, ui) {
 //				select[ 0 ].selectedIndex = ui.value;
 //				myFunction();
+				stopSlide();
 				updateSlide(ui.value);
 			}
 		});
@@ -40,6 +41,11 @@ $(function() {
 			myFunction();
 		});
 
+		$("#play").button({
+			icons: {
+				primary: "ui-icon-pause"
+			}
+		});
 		$("#play").click(function() {
 			if (playInterval != undefined) {
 				stopSlide();
@@ -63,8 +69,10 @@ $(function() {
 			}, slideDuration);
 		});
 		var stopSlide = function() {
-			clearInterval(playInterval);
-			playInterval = undefined;
+			if (playInterval) {
+				clearInterval(playInterval);
+				playInterval = undefined;
+			}
 			$("#play").button({
 				icons: {
 					primary: "ui-icon-play"
