@@ -56,9 +56,10 @@ $(function() {
   function setSlide (index) {
     currentSlide = index;
     var select = $( "#timeslot" );
-    select[ 0 ].selectedIndex= select[ 0 ].selectedIndex + 1;
+    select[ 0 ].selectedIndex= index;
+    $( "#slider" ).slider( "value", index+1 );
     myFunction();
-    $( "#slider" ).slider( "value", index );
+
 
   }
 
