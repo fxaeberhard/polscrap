@@ -1,0 +1,6 @@
+Occurences of the concepts from Carmen's thesaurus in all Bundeshaus affairs 
+from: http://ws.parlament.ch/affairs, 
+that have been updated since 2014-01-01
+authored by councillors (filtered out those authored by cantons or other entities)
+... that are still activce (filtered out those authored by councillors that aren't active right now)
+... and were submitted in German
