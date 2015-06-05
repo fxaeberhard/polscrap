@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>jQuery UI Slider - Slider bound to select</title>
+  <title>Slider</title>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
   <script>
   $(function() {
-    var select = $( "#minbeds" );
+    var select = $( "#timeslot" );
     var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
       min: 1,
       max: 6,
@@ -17,19 +17,28 @@
       value: select[ 0 ].selectedIndex + 1,
       slide: function( event, ui ) {
         select[ 0 ].selectedIndex = ui.value - 1;
+        myFunction();
       }
     });
-    $( "#minbeds" ).change(function() {
+    $( "#timeslot" ).change(function() {
       slider.slider( "value", this.selectedIndex + 1 );
+      $("#test").html($("#timeslot").val());
+      //var zone=document.getElementById("test");
+      //zone.textContent=this.selectedIndex + 1;
     });
   });
+
+	function myFunction() {
+	    var x = $("#timeslot").val();
+	    $("#test").html(x);
+	}
   </script>
 </head>
 <body>
  
-<form id="reservation">
-  <label for="minbeds">Période</label>
-  <select name="minbeds" id="minbeds">
+<form id="timeline">
+  <label for="timeslot">Période</label>
+  <select name="timeslot" id="timeslot">
     <option>Janvier 2008</option>
     <option>Février 2008</option>
     <option>Mars 2008</option>
@@ -39,7 +48,8 @@
   </select>
 </form>
 
-<
+<img src="./img/sample-1.png"></img>
+<p id="test">Janvier 2008</p>
  
  
 </body>
