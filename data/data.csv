@@ -1,0 +1,3 @@
+Id, Title, Origin, Origin, Timestamp, Term, Count, Comment
+"1", "Foo", "SP", "Berset Alain", "2015.06.03 11:00:00", "Sozial", 45, "test"
+"23", "Bar", "News", "NZZ", "2015.06.03 13:00:00", "Korruption", 23, "bar"
