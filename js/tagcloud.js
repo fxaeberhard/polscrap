@@ -3,37 +3,55 @@
  */
 (function() {
 
-	var file = "data/nzzdata.csv",
-		diameter = 960,
+	var file = "data/bundeshausdata-demo.csv",
+		width = 450,
+		height = 300,
 		format = d3.format(",d"),
 		color = d3.scale.category20c(),
-		timeInterval = 60 * 60 * 24 * 30;
-
+		data;
 
 	var bubble = d3.layout.pack()
 		.sort(null)
-		.size([diameter, diameter])
+		.size([width, height])
 		.padding(1.5);
 
 	var svg = d3.select("body").append("svg")
-		.attr("width", diameter)
-		.attr("height", diameter)
+		.attr("width", width)
+		.attr("height", height)
 		.attr("class", "bubble");
-
-	var data;
 
 	d3.csv(file, function(error, root) {
 		if (error)
 			alert("unable to load data");
+
 		data = root;
-		window.showBubble(new Date("2015-05-11T00:00:00.000Z"));
+
+		var min = new Date(data[0].timestamp),
+			max = min;
+
+		data.forEach(function(o) {
+			var d = new Date(o.timestamp);
+			if (d > max) {
+				max = d;
+			}
+			if (d < min) {
+				console.log("min", o.timestamp);
+				min = d;
+			}
+		});
+
+		min.setDate(1);
+		max.setDate(1);
+
+		$.showBubble(min);
+		$.initSlider(min, max);
 	});
 
-	d3.select(self.frameElement).style("height", diameter + "px");
+	d3.select(self.frameElement).style("height", height + "px");
 
-	window.showBubble = function(date) {
+	$.showBubble = function(date) {
 		var terms = {},
-			endDate = new Date(date.getTime() + timeInterval);
+			endDate = date.clone().addMonths(1);
 
 		data.forEach(function(r) {
 			var term = r.term,
@@ -52,9 +70,9 @@
 
 			terms[term].value += +r.count * 100;
 		});
-		
+
 		svg.selectAll("*").remove();
-		
+
 		if (_.size(terms) > 0) {
 			render(_.values(terms));
 		}
