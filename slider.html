@@ -2,41 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Slider</title>
+  <title>Parliament Impact</title>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
-  <script>
-  $(function() {
-    var select = $( "#timeslot" );
-    var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
-      min: 1,
-      max: 6,
-      range: "min",
-      value: select[ 0 ].selectedIndex + 1,
-      slide: function( event, ui ) {
-        select[ 0 ].selectedIndex = ui.value - 1;
-        myFunction();
-      }
-    });
-    $( "#timeslot" ).change(function() {
-      slider.slider( "value", this.selectedIndex + 1 );
-      myFunction();
-      //var zone=document.getElementById("test");
-      //zone.textContent=this.selectedIndex + 1;
-    });
-  });
-
-	function myFunction() {
-	    var text_value = $("#timeslot").val();
-      var index_value = $("#timeslot")[0].selectedIndex + 1;
-	    $("#test").html(text_value+"  "+index_value);
-      $("#image").attr("src","./img/sample-"+index_value+".png");
-	}
-  </script>
+  <script src="./js/slider-animate.js"></script>
 </head>
 <body>
+
+<div>
+<img id="image" src="./img/sample-1.png"></img>
  
 <form id="timeline">
   <label for="timeslot">Période</label>
@@ -50,10 +26,14 @@
   </select>
 </form>
 
-<img id="image" src="./img/sample-1.png"></img>
+
 <p id="test">Janvier 2008 1</p>
- 
- 
+<button id="play">play</button>
+ </div>
+
+
+
+
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script src="http://d3js.org/d3.v3.min.js"></script>
