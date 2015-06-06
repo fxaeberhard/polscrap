@@ -1,0 +1,43 @@
+<https://quantinum.com/kb/Entwicklungsziele.thesaurus> a <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C1> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"AHV"@de ;
+<http://www.w3.org/2004/02/skos/core#altLabel>"AVH-Fonds"@de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C2> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"IV"@de ;
+<http://www.w3.org/2004/02/skos/core#altLabel>"IV-Fonds"@de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C3> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"EO"@de ;
+<http://www.w3.org/2004/02/skos/core#altLabel>"EO-Fonds"@de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C4> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"AHV/IV/EO"@de ;
+<http://www.w3.org/2004/02/skos/core#altLabel>"AHV/IV/EO-Fonds"@de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C5> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"Asyl"@de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C6> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"KVG"@de .
+<http://www.w3.org/2004/02/skos/core#altLabel>"Krankenversicherung"@de , "Krankenkassen"de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C7> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"Frankenstärke"@de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C8> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"Zweitwohnungen"@de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C9> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"Unternehmenssteuerreform"@de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C10> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"Personenfreizügigkeit"@de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C11> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"Masseneinwanderungs-Initiative"@de .
+
+<https://quantinum.com/kb/Materialien.thesaurus#C12> a <http://www.w3.org/2004/02/skos/core#Concept>;
+<http://www.w3.org/2004/02/skos/core#prefLabel>"Armee"@de ;
+<http://www.w3.org/2004/02/skos/core#altLabel>"Schweizer Armee"@de .

@@ -3,8 +3,10 @@
  */
 (function() {
 
-	var file = "data/bundeshausdata-demo.csv",
-		secfile = "data/nzzdata-demo.csv",
+	var file = "data/bundeshausdata-2014-2015.csv",
+		//file = "data/bundeshausdata-demo.csv",nzzdata
+		secfile = "data/nzzdata.csv",
+		//secfile = "data/nzzdata-demo.csv",
 		width = 450,
 		height = 300,
 		format = d3.format(",d"),
@@ -82,9 +84,9 @@
 			}
 		});
 
-		svg.selectAll("*").remove();											// Empty the svg
 
 		if (_.size(terms) > 0) {
+			svg.selectAll("*").remove();										// Empty the svg
 			draw(_.values(terms));
 		}
 	};
@@ -120,7 +122,7 @@
 			.attr("dy", ".3em")
 			.style("text-anchor", "middle")
 			.style("font-size", function(d) {
-				return Math.max(8, Math.min(d.seccount * 6, 30)) + "px";		// bound the value between 8 and 30 pixels
+				return Math.max(9, Math.min(d.seccount * 6, 30)) + "px";		// bound the value between 8 and 30 pixels
 			})
 			.text(function(d) {
 				return d.name.substring(0, d.r / 3);

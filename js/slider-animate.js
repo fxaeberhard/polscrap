@@ -31,7 +31,7 @@ $(function() {
 		function updateSlide(index) {
 			var date = new Date(minDate.getTime());
 			date.addMonths(index);
-			$("#test").html(MONTHS[date.getMonth() - 1] + " " + date.getFullYear());
+			$("#test").html(MONTHS[date.getMonth()] + " " + date.getFullYear());
 			$.showBubble(date);
 		}
 		updateSlide(0);
@@ -43,7 +43,7 @@ $(function() {
 
 		$("#play").button({
 			icons: {
-				primary: "ui-icon-pause"
+				primary: "ui-icon-play"
 			}
 		});
 		$("#play").click(function() {
@@ -51,11 +51,8 @@ $(function() {
 				stopSlide();
 				return;
 			}
-			$(this).button({
-				icons: {
-					primary: "ui-icon-pause"
-				}
-			});
+			$("#play").button("option", "icons", {primary: "ui-icon-pause"}).button( "option", "label", "pause" )
+
 			playInterval = setInterval(function() {
 				var newIndex = $("#slider").slider("value") + 1;
 				if (newIndex > interval) {
@@ -73,11 +70,7 @@ $(function() {
 				clearInterval(playInterval);
 				playInterval = undefined;
 			}
-			$("#play").button({
-				icons: {
-					primary: "ui-icon-play"
-				}
-			});
+			$("#play").button("option", "icons", {primary: "ui-icon-play"}).button( "option", "label", "play" )
 		}
 	};
 
